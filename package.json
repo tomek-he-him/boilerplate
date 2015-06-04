@@ -35,7 +35,10 @@
 , "keywords":
   [ "…"
   ]
-, "author": "Tomek Wiszniewski <t.wiszniewski@gmail.com>"
+, "contributors":
+  [ "Tomek Wiszniewski <t.wiszniewski@gmail.com>"
+  ]
+, "copyright": "© 2015 Studio B12 GmbH (http://studio-b12.de)"
 , "repository":
   { "type": "git"
   , "url": "git@github.com:tomekwi/….git"
