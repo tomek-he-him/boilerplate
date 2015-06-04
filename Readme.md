@@ -1,23 +1,23 @@
 1) Clone this repository:
 
 ```sh
-$ git clone git@git.sb12.de/js/lib/boilerplate.git [my repo name]
+$ git clone git@git.sb12.de/js/lib/boilerplate <my project name>
 ```
 
 
 2) Add your real remote:
 
 ```sh
-$ cd [my repo name]
+$ cd <my project name>
 $ git remote rename origin boilerplate
-$ git remote add origin [my remote address]
+$ git remote add origin <my remote address>
 ```
 
 
 3) Check out boilerplate files:
 
 ```sh
-$ git checkout boilerplate
+$ git checkout boilerplate.es5
 ```
 
 
