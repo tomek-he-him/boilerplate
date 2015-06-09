@@ -53,5 +53,5 @@ License
 
 [MIT][] © [Studio B12 GmbH][]
 
-[MIT]: ./License.md
-[Studio B12 GmbH]: http://studio-b12.de
+[MIT]:              ./License.md
+[Studio B12 GmbH]:  http://studio-b12.de
