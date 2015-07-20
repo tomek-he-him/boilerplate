@@ -1,4 +1,4 @@
-{ "name": "…"
+{ "name": "doxie.…"
 , "version": "0.0.0-work-in-progress"
 , "description": "…"
 , "dependencies": {}
@@ -27,7 +27,7 @@
   ]
 , "license": "MIT"
 , "keywords":
-  [ "…"
+  [ "doxie-plugin"
   ]
 , "contributors":
   [ "Tomek Wiszniewski <t.wiszniewski@gmail.com>"
@@ -35,6 +35,6 @@
 , "author": "© 2015 Studio B12 GmbH (http://studio-b12.de)"
 , "repository":
   { "type": "git"
-  , "url": "git@github.com:studio-b12/….git"
+  , "url": "git@github.com:studio-b12/doxie.….git"
   }
 }
