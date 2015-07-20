@@ -55,7 +55,7 @@ CLI Usage
 `doxie --…` is a plugin for the command-line tool **[doxie][]**. Many plugins are designed for **[dox][]** data. Install all three if you haven’t already:
 
 ```sh
-$ npm install --global dox doxie doxie.…
+$ npm install [--save-dev|--global] dox doxie doxie.…
 ```
 
 
