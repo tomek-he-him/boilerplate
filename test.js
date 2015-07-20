@@ -1,1 +1,2 @@
-const test = require('tape-catch');
+import './test/cli-plugin.test';
+import './test/index.test';
