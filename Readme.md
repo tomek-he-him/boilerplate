@@ -51,7 +51,11 @@ Installation
 ------------
 
 ```sh
-$ npm install <!--name-->
+# Globally for a user:
+npm install --global <!--name-->
+
+# …or locally for a project:
+npm install --save-dev <!--name-->
 ```
 
 
@@ -62,8 +66,9 @@ $ npm install <!--name-->
 Usage
 -----
 
+<!-- @doxie.inject start -->
 *Work in progress…*
-
+<!-- @doxie.inject end -->
 
 
 
