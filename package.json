@@ -26,7 +26,10 @@
   ],
   "license": "MIT",
   "keywords": [],
-  "author": "Tomek Wiszniewski <t.wiszniewski@gmail.com>",
+  "author": "© 2015 Studio B12 GmbH  (http://studio-b12.de)",
+  "contributors": [
+    "Tomek Wiszniewski <t.wiszniewski@gmail.com>"
+  ],
   "repository": {
     "type": "git",
     "url": "<!--repo-->"

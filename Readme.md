@@ -1,12 +1,12 @@
 [![Coveralls – test coverage
-](https://img.shields.io/coveralls/tomekwi/<!--name-->.svg?style=flat-square)
-](https://coveralls.io/r/tomekwi/<!--name-->)
+](https://img.shields.io/coveralls/studio-b12/<!--name-->.svg?style=flat-square)
+](https://coveralls.io/r/studio-b12/<!--name-->)
  [![Travis – build status
-](https://img.shields.io/travis/tomekwi/<!--name-->/master.svg?style=flat-square)
-](https://travis-ci.org/tomekwi/<!--name-->)
+](https://img.shields.io/travis/studio-b12/<!--name-->/master.svg?style=flat-square)
+](https://travis-ci.org/studio-b12/<!--name-->)
  [![David – status of dependencies
-](https://img.shields.io/david/tomekwi/<!--name-->.svg?style=flat-square)
-](https://david-dm.org/tomekwi/<!--name-->)
+](https://img.shields.io/david/studio-b12/<!--name-->.svg?style=flat-square)
+](https://david-dm.org/studio-b12/<!--name-->)
  [![Stability: experimental
 ](https://img.shields.io/badge/stability-experimental-yellow.svg?style=flat-square)
 ](https://nodejs.org/api/documentation.html#documentation_stability_index)
@@ -17,15 +17,30 @@
 
 
 
+<div                                                         id="/">&nbsp;</div>
+
 <!--title-->
 <!--title-underline-->
 
 **<!--description-->**
 
 
-**Heads up!** This is totally a work in progress. [Thoughts and ideas][] are very welcome.
 
-[Thoughts and ideas]:  https://github.com/tomekwi/<!--name-->/issues
+
+<p align="center"><a
+  title="Graphic by the great Justin Mezzell"
+  href="http://justinmezzell.tumblr.com/post/89957156723"
+  >
+  <br/>
+  <br/>
+  <img
+    src="Readme/….gif"
+    width="400"
+    height="300"
+  />
+  <br/>
+  <br/>
+</a></p>
 
 
 
@@ -54,10 +69,12 @@ Usage
 
 <div                                                  id="/license">&nbsp;</div>
 
+<div                                                  id="/license">&nbsp;</div>
+
 License
 -------
 
-[MIT][] © [Tomek Wiszniewski][]
+[MIT][] © [Studio B12 GmbH][]
 
-[MIT]: ./License.md
-[Tomek Wiszniewski]: https://github.com/tomekwi
+[MIT]:              ./License.md
+[Studio B12 GmbH]:  http://studio-b12.de

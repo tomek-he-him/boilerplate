@@ -15,7 +15,7 @@ if test (count $argv) -lt 3; set title $name
 else; set title $argv[3]
 end
 
-if test (count $argv) -lt 4; set repo "git@github.com:tomekwi/$name"
+if test (count $argv) -lt 4; set repo "git@github.com:studio-b12/$name"
 else; set repo $argv[4]
 end
 
