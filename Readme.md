@@ -74,8 +74,6 @@ Usage
 
 <div                                                  id="/license">&nbsp;</div>
 
-<div                                                  id="/license">&nbsp;</div>
-
 License
 -------
 
