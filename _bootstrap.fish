@@ -4,20 +4,14 @@ if begin
   test (count $argv) -lt 2
   or test $argv[1] = '--help'
 end
-  echo 'Usage: ./_bootstrap.sh NAME DESCRIPTION [TITLE [REPO]]'
+  echo 'Usage: ./_bootstrap.sh NAME DESCRIPTION'
   exit 0
   end
 
 set name $argv[1]
 set description $argv[2]
-
-if test (count $argv) -lt 3; set title $name
-else; set title $argv[3]
-end
-
-if test (count $argv) -lt 4; set repo "git@github.com:studio-b12/$name"
-else; set repo $argv[4]
-end
+set title $name
+set repo "git@git.sb12.de:css/lib/$name"
 
 echo \n'Doing the initial commit…'
 git remote rename origin boilerplate
