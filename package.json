@@ -24,7 +24,8 @@
     "/Readme.md",
     "/License.md"
   ],
-  "license": "MIT",
+  "license": "UNLICENSED",
+  "private": true
   "keywords": [],
   "author": "© 2015 Studio B12 GmbH  (http://studio-b12.de)",
   "contributors": [
