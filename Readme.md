@@ -47,10 +47,10 @@ A plugin for **[doxie][]**.
 
 
 
-<div                                                               >&nbsp;</div>
+<a                                                          id="/cli"></a>&nbsp;
 
-CLI Usage
----------
+CLI
+---
 
 `doxie --…` is a plugin for the command-line tool **[doxie][]**. Many plugins are designed for **[dox][]** data. Install all three if you haven’t already:
 
@@ -67,7 +67,7 @@ $ npm install [--save-dev|--global] dox doxie doxie.…
 
 
 
-<div                                                               >&nbsp;</div>
+<a                                                        id="/usage"></a>&nbsp;
 
 Programmatic usage
 ------------------
@@ -84,7 +84,7 @@ $ npm install doxie-core doxie.…
 
 
 
-<div                                                               >&nbsp;</div>
+<a                                                      id="/license"></a>&nbsp;
 
 License
 -------
