@@ -17,7 +17,7 @@
 
 
 
-<div                                                         id="/">&nbsp;</div>
+<a                                                             id="/"></a>&nbsp;
 
 <!--title-->
 <!--title-underline-->
@@ -45,7 +45,7 @@
 
 
 
-<div                                             id="/installation">&nbsp;</div>
+<a                                                 id="/installation"></a>&nbsp;
 
 Installation
 ------------
@@ -61,7 +61,7 @@ npm install --save-dev <!--name-->
 
 
 
-<div                                                    id="/usage">&nbsp;</div>
+<a                                                        id="/usage"></a>&nbsp;
 
 Usage
 -----
@@ -72,7 +72,7 @@ Usage
 
 
 
-<div                                                  id="/license">&nbsp;</div>
+<a                                                      id="/license"></a>&nbsp;
 
 License
 -------
