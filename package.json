@@ -33,5 +33,6 @@
   "repository": {
     "type": "git",
     "url": "<!--repo-->"
-  }
+  },
+  "jsnext:main": "module/index.js"
 }
