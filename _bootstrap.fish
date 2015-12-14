@@ -19,10 +19,14 @@ if test (count $argv) -lt 4; set repo "git@github.com:studio-b12/$name"
 else; set repo $argv[4]
 end
 
-echo \n'Doing the initial commit…'
+echo \n'Renaming remotes…'
 git remote rename origin boilerplate
 git remote add origin $repo
-and if test (count (git branch --list master)) -gt 0
+and echo '…done.'
+or echo '…failed!'
+
+echo \n'Doing the initial commit…'
+if test (count (git branch --list master)) -gt 0
   git branch -D master
   else; true
   end
