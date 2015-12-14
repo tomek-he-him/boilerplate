@@ -10,6 +10,7 @@
     "clean": "git reset && echo '/node_modules/' > .gitignore && git add .gitignore && git stash save --include-untracked --keep-index '`npm run clean` trash can' && git clean --force -d && git reset --hard && echo '\nclean: Uncommitted and ignored files have been moved to git’s stash. To restore them run `git stash pop --quiet; git checkout .gitignore`.'",
     "develop": "nodangel --ignore node_modules --ignore coverage --exec 'npm run --silent test:lite'",
     "prepublish": "npm run --silent clean && npm run transpile",
+    "reshrinkwrap": "npm shrinkwrap --dev && git reset && git commit -m '[npm run reshrinkwrap] Update dependencies' package.json npm-shrinkwrap.json",
     "test": "eslint . && npm run test:transpile && node .es5/test.js | tap-spec",
     "test:lite": "babel-node test.js | tap-spec",
     "test:transpile": "rm -rf .es5 && babel test.js module/*.js --out-dir .es5",
