@@ -14,7 +14,7 @@
     "test:transpile": "rm -rf .es5 && babel test.js module/*.js --out-dir .es5",
     "transpile": "babel module --out-dir .",
     "view-coverage": "echo 'Generating coverage reports...'; npm run coverage >/dev/null && echo '...done.' && opn ./coverage/lcov-report/index.html >/dev/null",
-    "_bootstrap": "npm install --save-dev --save-exact babel babel-eslint coveralls istanbul eslint eslint-config-airbnb eslint-plugin-react nodangel tap-spec@2 tape-catch opn-cli; npm install json; json --in-place -f package.json -e 'delete this.scripts._bootstrap'; npm rm json"
+    "_bootstrap": "npm install --save-dev --save-exact babel babel-eslint coveralls istanbul eslint eslint-config-airbnb eslint-plugin-react nodangel tap-spec@2 tape-catch tape opn-cli; npm install json; json --in-place -f package.json -e 'delete this.scripts._bootstrap'; npm rm json"
   },
   "devDependencies": {},
   "files": [
