@@ -55,12 +55,8 @@ npm install --save  \
   minimist
 and npm install --save-dev  \
   1-liners  \
-  babel  \
-  babel-eslint  \
-  istanbul  \
   eslint  \
   eslint-config-airbnb  \
-  eslint-plugin-react  \
   nodangel  \
   tap-spec@2  \
   tape-catch  \

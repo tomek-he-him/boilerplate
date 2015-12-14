@@ -1,5 +1,5 @@
-const {resolve} = require('path');
-const {execFile} = require('child_process');
+const path = require('path');
+const cp = require('child_process');
 
 const tape = require('tape-catch');
 const curry = require('1-liners/curry');
@@ -7,8 +7,8 @@ const plus = require('1-liners/plus');
 const spawn = require('tape-spawn');
 
 const title = curry(plus)('The CLI tool:  ');
-const … = resolve(__dirname, '../../module/bin/….js');
-const …Command = curry(execFile)(…);
+const … = path.resolve(__dirname, '../../module/bin/….js');
+const …Command = curry(cp.execFile)(…);
 
 tape(title('Prints usage'), (is) => {
   is.plan(8);
@@ -58,7 +58,7 @@ tape(title('Prints usage'), (is) => {
   });
 });
 
-const cwd = resolve(__dirname, '../mock-cwd');
+const cwd = path.resolve(__dirname, '../mock-cwd');
 
 tape(title('…'), (is) => {
   const run = spawn(is, `"${…}" a.js`, {cwd});
