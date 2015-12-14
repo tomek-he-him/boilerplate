@@ -50,8 +50,25 @@ and echo '…done.'
 or echo '…failed!'
 
 echo \n'Bootstrapping dependencies…'
-npm run _bootstrap
+npm install --save  \
+  chalk  \
+  minimist
+and npm install --save-dev  \
+  1-liners  \
+  babel  \
+  babel-eslint  \
+  istanbul  \
+  eslint  \
+  eslint-config-airbnb  \
+  eslint-plugin-react  \
+  nodangel  \
+  tap-spec@2  \
+  tape-catch  \
+  tape-spawn  \
+  tape  \
+  opn-cli
 and git commit -m 'Bootstrap dependencies' package.json
+and npm run reshrinkwrap
 and echo '…done.'
 or echo '…failed!'
 

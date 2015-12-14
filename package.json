@@ -14,8 +14,7 @@
     "test": "eslint . && npm run test:transpile && node .es5/test.js | tap-spec",
     "test:lite": "babel-node test.js | tap-spec",
     "test:transpile": "rm -rf .es5 && babel test.js module/*.js --out-dir .es5",
-    "transpile": "babel module --out-dir .",
-    "_bootstrap": "npm install --save chalk minimist && npm install --save-dev --save-exact 1-liners babel babel-eslint istanbul eslint eslint-config-airbnb eslint-plugin-react nodangel tap-spec@2 tape-catch tape-spawn tape opn-cli; npm install json; json --in-place -f package.json -e 'delete this.scripts._bootstrap'; npm rm json"
+    "transpile": "babel module --out-dir ."
   },
   "devDependencies": {},
   "files": [
