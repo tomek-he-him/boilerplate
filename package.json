@@ -34,7 +34,7 @@
   "author": "© 2015 Studio B12 GmbH (http://studio-b12.de)",
   "repository": {
     "type": "git",
-    "url": "<!--repo-->"
+    "url": "git@github.com:studio-b12/doxie.….git"
   },
   "jsnext:main": "module/index.js"
 }
