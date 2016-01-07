@@ -64,9 +64,11 @@ and npm install --save-dev  \
   tape  \
   opn-cli
 and git commit -m 'Bootstrap dependencies' package.json
-and touch npm-shrinkwrap.json
-and git add npm-shrinkwrap.json
-and npm run reshrinkwrap
+and begin
+  npm run --silent reshrinkwrap
+  git add npm-shrinkwrap.json
+  git commit -m 'Create a shrinkwrap file'
+  end
 and echo '…done.'
 or echo '…failed!'
 
