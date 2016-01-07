@@ -3,25 +3,9 @@
 # ====================
 #
 
-# - Built files
-/*.js
-!/module.js
-!/test.js
-/*/
-!/module/
-!/test/
-!/Readme/
-
-# - All files and directories starting with "#"
-\#*
+# - All files and directories ending with “~”
+*~
 
 # - NPM stuff
 /node_modules/
-/npm-debug.log
-
-# - Test coverage reports
-/coverage/
-
-# - Editor files
-*.sublime-project
-*.sublime-workspace
+npm-debug.log
