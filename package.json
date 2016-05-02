@@ -1,0 +1,35 @@
+{
+  "name": "<!--name-->",
+  "version": "0.0.0-work-in-progress",
+  "description": "<!--description-->",
+  "bin": {
+    "<!--name-->": "bin/<!--name-->.js"
+  },
+  "dependencies": {},
+  "scripts": {
+    "develop": "nodangel --ignore node_modules --exec 'npm run --silent test:lite'",
+    "reshrinkwrap": "npm shrinkwrap --dev && git reset && git commit -m '[npm run reshrinkwrap] Update dependencies' package.json npm-shrinkwrap.json",
+    "test": "eslint . && npm run --silent test:lite",
+    "test:lite": "node test.js | tap-spec"
+  },
+  "devDependencies": {},
+  "files": [
+    "index.js",
+    "module/*.js",
+    "*.md"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "cli",
+    "tool"
+  ],
+  "author": "© 2015 Studio B12 GmbH  (http://studio-b12.de)",
+  "contributors": [
+    "Tomek Wiszniewski <t.wiszniewski@gmail.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "<!--repo-->"
+  },
+  "jsnext:main": "module/index.js"
+}
