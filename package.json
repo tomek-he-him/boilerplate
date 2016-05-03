@@ -1,0 +1,26 @@
+{
+  "name": "{{{ name }}}",
+  "version": "0.0.0",
+  "description": "{{{ description }}}",
+  "scripts": {
+    "coverage": "rm -rf coverage && istanbul cover test.js",
+    "coveralls": "npm run coverage && cat coverage/lcov.info | coveralls",
+    "develop": "node-dev --respawn --no-notify --no-deps test.js | tap-spec",
+    "test": "eslint . && node test.js | tap-spec"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "files": [
+    "/**/*.js",
+    "/Readme.md",
+    "/License.md"
+  ],
+  "license": "MIT",
+  "keywords": [{{{ keywords }}}],
+  "author": "© {{{ year }}} Studio B12 GmbH (http://studio-b12.de)",
+  "contributors": [{{{ contributors }}}],
+  "repository": {
+    "type": "git",
+    "url": "{{{ repo }}}"
+  }
+}
