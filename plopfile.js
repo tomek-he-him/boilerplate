@@ -1,4 +1,9 @@
+const projectRoot = `${__dirname}/..`;
+const templates = `${__dirname}/templates`;
+
 module.exports = (plop) => {
+  plop.addHelper('year', () => (new Date()).getFullYear());
+
   plop.setGenerator('js-library', {
     description: 'A generic JS library',
 
@@ -15,6 +20,10 @@ module.exports = (plop) => {
       ),
     }],
 
-    actions: [],
+    actions: (data) => [{
+      type: 'add',
+      path: `${projectRoot}/License.md`,
+      templateFile: `${templates}/License.md`,
+    }],
   });
 }
