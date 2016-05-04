@@ -19,7 +19,7 @@
 
 <a                                                             id="/"></a>&nbsp;
 
-# {{{ title }}}
+# {{{ name }}}
 
 **{{{ description }}}**
 
