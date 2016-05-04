@@ -15,7 +15,7 @@ module.exports = (plop) => {
         true :
         (
           'A good name consists of one or more words (one or more ' +
-          `lowercase letters) separated with a single dash. Have another go!`
+          'lowercase letters) separated with a single dash. Have another go!'
         )
       ),
     }],
@@ -28,4 +28,4 @@ module.exports = (plop) => {
       templateFile: `${templates}/${filename}`,
     })),
   });
-}
+};
