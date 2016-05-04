@@ -20,10 +20,12 @@ module.exports = (plop) => {
       ),
     }],
 
-    actions: (data) => [{
+    actions: () => [
+      'Contributing.md', 'License.md',
+    ].map((filename) => ({
       type: 'add',
-      path: `${projectRoot}/License.md`,
-      templateFile: `${templates}/License.md`,
-    }],
+      path: `${projectRoot}/${filename}`,
+      templateFile: `${templates}/${filename}`,
+    })),
   });
 }
