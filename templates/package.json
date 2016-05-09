@@ -18,9 +18,11 @@
   "license": "MIT",
   "keywords": [{{{ keywords }}}],
   "author": "© {{{ year }}} Studio B12 GmbH (http://studio-b12.de)",
-  "contributors": [{{{ contributors }}}],
+  "contributors": [
+    "{{{ author }}}"
+  ],
   "repository": {
     "type": "git",
-    "url": "{{{ repo }}}"
+    "url": "https://github.com/{{{ repoSlug }}}"
   }
 }

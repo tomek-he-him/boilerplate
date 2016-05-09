@@ -6,6 +6,9 @@
   },
   "dependencies": {
     "chalk": "^1.1.3",
-    "npm-name": "^3.0.0"
+    "email-regex": "^1.0.0",
+    "execa": "^0.4.0",
+    "npm-name": "^3.0.0",
+    "parse-author": "^1.0.0"
   }
 }

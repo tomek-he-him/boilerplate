@@ -1,6 +1,9 @@
 const npmName = require('npm-name');
 const chalk = require('chalk');
 const bold = chalk.bold;
+const execa = require('execa');
+const parseAuthor = require('parse-author');
+const emailRegex = require('email-regex');
 
 const projectRoot = `${__dirname}/..`;
 const templates = `${__dirname}/templates`;
@@ -57,10 +60,56 @@ module.exports = (plop) => {
       ) || (
         true
       )),
+    }, {
+      type: 'input',
+      name: 'author',
+      message: 'Introduce yourself! We need your name and email.',
+      default: () => {
+        const name = execa.sync('git', ['config', 'user.name']).stdout;
+        const email = execa.sync('git', ['config', 'user.email']).stdout;
+        return `${name} <${email}>`;
+      },
+      validate: (rawAuthor) => {
+        const author = parseAuthor(rawAuthor);
+        if (!author.name || !emailRegex({ exact: true }).test(author.email)) {
+          return (
+            `“${author}” – almost there! We’re looking for ` +
+            'a “name <email>” format.'
+          );
+        }
+
+        return true;
+      },
+    }, {
+      type: 'input',
+      name: 'keywords',
+      message: (
+        'Help others find your lib! Add some keywords, space-separated. ' +
+        'http://npm.im/keyword-popularity might help you out.'
+      ),
+      filter: (rawKeywords) => (
+        rawKeywords
+          .trim()
+          .split(/\s+/)
+          .map(keyword => `\n    "${
+            keyword
+              .replace(/\\/, '\\\\')
+              .replace(/"/, '\\"')
+          }"`)
+          .join(',')
+      ),
+    }, {
+      type: 'input',
+      name: 'repoSlug',
+      message: 'What’s the github repo slug?',
+      default: (answers) => (
+        `studio-b12/${answers.name}`
+      ),
     }],
 
     actions: () => [
-      'Contributing.md', 'License.md',
+      '.editorconfig', '.eslintrc', '.gitignore', '.travis.yml',
+      'Contributing.md', 'License.md', 'package.json', 'Readme.md', 'test.js',
     ].map((filename) => ({
       type: 'add',
       path: `${projectRoot}/${filename}`,
