@@ -1,6 +1,7 @@
 const npmName = require('npm-name');
 const chalk = require('chalk');
 const bold = chalk.bold;
+const dim = chalk.dim;
 const execa = require('execa');
 const parseAuthor = require('parse-author');
 const emailRegex = require('email-regex');
@@ -34,6 +35,13 @@ module.exports = (plop) => {
             ); return;
           }
 
+          process.stdout.write(
+`${dim('Note:')}
+  Good job! In your current directory we’re going to create
+  the subdirectory “${name}” and put a bunch of new files there.
+  If that’s not what you want, hit ⌃C.
+\n`
+          );
           done(true);
         });
       },
