@@ -35,13 +35,6 @@ module.exports = (plop) => {
             ); return;
           }
 
-          process.stdout.write(
-`${dim('Note:')}
-  Good job! In your current directory we’re going to create
-  the subdirectory “${name}” and put a bunch of new files there.
-  If that’s not what you want, hit ⌃C.
-\n`
-          );
           done(true);
         });
       },
@@ -106,12 +99,28 @@ module.exports = (plop) => {
           .join(',')
       ),
     }, {
-      type: 'input',
-      name: 'repoSlug',
-      message: 'What’s the github repo slug?',
-      default: (answers) => (
-        `studio-b12/${answers.name}`
+      type: 'confirm',
+      name: 'ok',
+      message: (data) => (
+`Good job! Here’s a list of things we’re about to do:
+
+  • Create the subdirectory “${data.name}” in your current working directory
+    and put a bunch of new files inside.
+  • Initialize a new git repo in there and create an initial commit.
+  • Add two git remotes – \`origin\`
+    at git@git.sb12.de/js/lib/${data.name}.git
+    and \`github\` at git@github.com:studio-b12/${data.name}.git .
+  • Initialize a new github repo
+    at https://github.com/studio-b12/${data.name}
+  • Try to push stuff to \`origin\` and \`github\`
+
+Make sure an empty repo at git@git.sb12.com:js/lib/${data.name}.git
+is available, because we won’t create it for you.
+
+Do you agree with this plan?
+`
       ),
+      default: true,
     }],
 
     actions: (data) => {

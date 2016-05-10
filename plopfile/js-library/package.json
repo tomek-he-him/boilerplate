@@ -23,6 +23,6 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/{{{ repoSlug }}}"
+    "url": "https://github.com/studio-b12/{{{ name }}}.git"
   }
 }

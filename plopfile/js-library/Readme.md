@@ -1,12 +1,12 @@
 [![Coveralls – test coverage
-](https://img.shields.io/coveralls/{{{ repoSlug }}}.svg?style=flat-square
-)](https://coveralls.io/r/{{{ repoSlug }}}
+](https://img.shields.io/coveralls/studio-b12/{{{ name }}}.svg?style=flat-square
+)](https://coveralls.io/r/studio-b12/{{{ name }}}
 ) [![Travis – build status
-](https://img.shields.io/travis/{{{ repoSlug }}}/master.svg?style=flat-square
-)](https://travis-ci.org/{{{ repoSlug }}}
+](https://img.shields.io/travis/studio-b12/{{{ name }}}/master.svg?style=flat-square
+)](https://travis-ci.org/studio-b12/{{{ name }}}
 ) [![David – status of dependencies
-](https://img.shields.io/david/{{{ repoSlug }}}.svg?style=flat-square
-)](https://david-dm.org/{{{ repoSlug }}}
+](https://img.shields.io/david/studio-b12/{{{ name }}}.svg?style=flat-square
+)](https://david-dm.org/studio-b12/{{{ name }}}
 ) [![Stability: experimental
 ](https://img.shields.io/badge/stability-experimental-yellow.svg?style=flat-square
 )](https://nodejs.org/api/documentation.html#documentation_stability_index
