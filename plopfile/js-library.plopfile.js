@@ -106,13 +106,17 @@ module.exports = (plop) => {
       ),
     }],
 
-    actions: () => [
-      '.editorconfig', '.eslintrc', '.gitignore', '.travis.yml',
-      'Contributing.md', 'License.md', 'package.json', 'Readme.md', 'test.js',
-    ].map((filename) => ({
-      type: 'add',
-      path: `${projectRoot}/${filename}`,
-      templateFile: `${templates}/${filename}`,
-    })),
+    actions: (data) => {
+      const projectRoot = `${process.cwd()}/${data.name}`;
+
+      return [
+        '.editorconfig', '.eslintrc', '.gitignore', '.travis.yml',
+        'Contributing.md', 'License.md', 'package.json', 'Readme.md', 'test.js',
+      ].map((filename) => ({
+        type: 'add',
+        path: `${projectRoot}/${filename}`,
+        templateFile: `${templates}/${filename}`,
+      }));
+    },
   });
 };
