@@ -6,5 +6,6 @@
   "istanbul",
   "node-dev",
   "tap-spec@2",
-  "tape-catch"
+  "tape-catch",
+  "tape"
 ]
