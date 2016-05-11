@@ -9,6 +9,7 @@ const child = require('child_process');
 const path = require('path');
 
 const templates = `${__dirname}/js-library`;
+const devDependencies = require('./js-library/(npm-dev-dependencies).json');
 
 const renderArg = (arg) => ` ${/\s/.test(arg)
   ? `'${arg.replace(/'/g, '\\\'')}'`
@@ -141,6 +142,7 @@ module.exports = (plop) => {
 
   • Create the subdirectory \`${answers.name}\` in your
     current working directory and put a bunch of new files inside.
+  • Install and shrinkwrap initial depenencies.
   • Initialize a new git repo in there and create an initial commit.
   • Add two git remotes – \`origin\`
     at git@git.sb12.de/js/lib/${answers.name}.git
@@ -181,6 +183,11 @@ is available, because we won’t create it for you.
       const repoActions = [
         () => {
           $('cd', [projectRoot]);
+
+          // npm dependencies
+          $('npm', ['install', '--save-dev', 'npm']);
+          $(local('npm'), ['install', '--save-dev'].concat(devDependencies));
+          $('npm', ['shrinkwrap', '--dev']);
 
           // Initial commit
           $('git', ['init']);
