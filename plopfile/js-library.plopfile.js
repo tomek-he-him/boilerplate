@@ -214,7 +214,8 @@ is available, because we won’t create it for you.
 
           // Done!
           process.stdout.write(bold(
-`Everything set up! You can now \`cd ${answers.name}\`
+`
+Everything set up! You can now \`cd ${answers.name}\`
 and start your work there. Good luck!
 `
           ));
