@@ -5,8 +5,39 @@ const dim = chalk.dim;
 const execa = require('execa');
 const parseAuthor = require('parse-author');
 const emailRegex = require('email-regex');
+const child = require('child_process');
+const path = require('path');
 
 const templates = `${__dirname}/js-library`;
+
+const $ = (command, args, options) => {
+  process.stdout.write([
+    '\n',
+    options && options.cwd && dim(options.cwd) || '',
+    ' ❭ ',
+    command,
+    (args ?
+      args.map((arg) => ` ${/\s/.test(arg) ?
+        `'${arg.replace(/'/g, '\'')}'` :
+        arg
+      }`).join('') :
+      ''
+    ),  // eslint-disable-line comma-style
+    '\n',
+  ].join(''));
+
+  const spawnOptions =
+    Object.assign({}, options, { stdio: 'inherit' });
+
+  return (command === 'cd' ?
+    process.chdir(args[0]) :
+    child.spawnSync(command, args, spawnOptions)
+  );
+};
+
+const local = (binary) => (
+  path.resolve(`${__dirname}/../node_modules/.bin/${binary}`)
+);
 
 module.exports = (plop) => {
   plop.addHelper('year', () => (new Date()).getFullYear());
@@ -101,32 +132,37 @@ module.exports = (plop) => {
     }, {
       type: 'confirm',
       name: 'ok',
-      message: (data) => (
-`Good job! Here’s a list of things we’re about to do:
+      message: (answers) => (
+`Good job! Here’s a list of things we’re about to do:${chalk.reset(`
 
-  • Create the subdirectory “${data.name}” in your current working directory
+  • Create the subdirectory “${answers.name}” in your current working directory
     and put a bunch of new files inside.
   • Initialize a new git repo in there and create an initial commit.
   • Add two git remotes – \`origin\`
-    at git@git.sb12.de/js/lib/${data.name}.git
-    and \`github\` at git@github.com:studio-b12/${data.name}.git .
+    at git@git.sb12.de/js/lib/${answers.name}.git
+    and \`github\` at git@github.com:studio-b12/${answers.name}.git .
   • Initialize a new github repo
-    at https://github.com/studio-b12/${data.name}
+    at https://github.com/studio-b12/${answers.name}
   • Try to push stuff to \`origin\` and \`github\`
 
-Make sure an empty repo at git@git.sb12.com:js/lib/${data.name}.git
+We’re using http://npm.im/gh for managing github repos. Make sure you have
+the right to create new repos at https://github.com/studio-b12 . Make sure
+you’ve configured gh the \`github_user\` and \`github_token\`
+in your \`~/.gh.json\`. Otherwise, gh will ask you for credentials
+and create a github token for you. This is a security threat.
+
+Make sure an empty repo at git@git.sb12.com:js/lib/${answers.name}.git
 is available, because we won’t create it for you.
 
-Do you agree with this plan?
-`
+`)}Do you agree with this plan?`
       ),
       default: true,
     }],
 
-    actions: (data) => {
-      const projectRoot = `${process.cwd()}/${data.name}`;
+    actions: (answers) => {
+      const projectRoot = `${process.cwd()}/${answers.name}`;
 
-      return [
+      const fileActions = [
         '.editorconfig', '.eslintrc', '.gitignore', '.travis.yml',
         'Contributing.md', 'License.md', 'package.json', 'Readme.md', 'test.js',
       ].map((filename) => ({
@@ -134,6 +170,44 @@ Do you agree with this plan?
         path: `${projectRoot}/${filename}`,
         templateFile: `${templates}/${filename}`,
       }));
+
+      const repoActions = [
+        () => {
+          $('cd', [projectRoot]);
+
+          // Initial commit
+          $('git', ['init']);
+          $('git', ['add', '.']);
+          $('git', ['commit', '--message=Boom!']);
+
+          // github
+          $(local('gh'), [
+            'repo', '--new', answers.name, '--organization=studio-b12',
+            `--description=${answers.description}`,
+          ]);
+          $('git', [
+            'remote', 'add', 'github',
+            `git@github.com:studio-b12/${answers.name}.git`,
+          ]);
+          $('git', ['push', 'github', 'master']);
+
+          // git.sb12.de
+          $('git', [
+            'remote', 'add', 'origin',
+            `git@git.sb12.de:js/lib/${answers.name}.git`,
+          ]);
+          $('git', ['push', '--set-upstream', 'origin', 'master']);
+
+          // Done!
+          process.stdout.write(bold(
+`Everything set up! You can now \`cd ${answers.name}\`
+and start your work there. Good luck!
+`
+          ));
+        },
+      ];
+
+      return fileActions.concat(repoActions);
     },
   });
 };
