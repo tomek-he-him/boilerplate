@@ -135,8 +135,8 @@ module.exports = (plop) => {
       message: (answers) => (
 `Good job! Here’s a list of things we’re about to do:${chalk.reset(`
 
-  • Create the subdirectory “${answers.name}” in your current working directory
-    and put a bunch of new files inside.
+  • Create the subdirectory \`${answers.name}\` in your
+    current working directory and put a bunch of new files inside.
   • Initialize a new git repo in there and create an initial commit.
   • Add two git remotes – \`origin\`
     at git@git.sb12.de/js/lib/${answers.name}.git
@@ -160,6 +160,8 @@ is available, because we won’t create it for you.
     }],
 
     actions: (answers) => {
+      if (!answers.ok) process.exit();
+
       const projectRoot = `${process.cwd()}/${answers.name}`;
 
       const fileActions = [
