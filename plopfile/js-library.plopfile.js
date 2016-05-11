@@ -156,7 +156,6 @@ is available, because we won’t create it for you.
 
 `)}Do you agree with this plan?`
       ),
-      default: true,
     }],
 
     actions: (answers) => {
