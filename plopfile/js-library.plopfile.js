@@ -148,8 +148,8 @@ module.exports = (plop) => {
     at git@git.sb12.de/js/lib/${answers.name}.git
     and \`github\` at git@github.com:studio-b12/${answers.name}.git .
   • Initialize a new github repo
-    at https://github.com/studio-b12/${answers.name}
-  • Try to push stuff to \`origin\` and \`github\`
+    at https://github.com/studio-b12/${answers.name} .
+  • Try to push stuff to \`origin\` and \`github\`.
 
 We’re using http://npm.im/gh for managing github repos. Make sure you have
 the right to create new repos at https://github.com/studio-b12 and that you have
