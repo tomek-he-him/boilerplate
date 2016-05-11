@@ -11,7 +11,7 @@
     "gh": "^1.12.4",
     "npm-name": "^3.0.0",
     "parse-author": "^1.0.0",
-    "plop": "^1.5.0"
+    "plop": "tomekwi/plop#e9979408d119f5ee6a274ae90ccfc47810eb574d"
   },
   "devDependencies": {
     "eslint": "^2.9.0",
