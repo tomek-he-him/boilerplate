@@ -410,12 +410,34 @@
         "inquirer": {
           "version": "0.12.0",
           "from": "inquirer@>=0.12.0 <0.13.0",
-          "resolved": "https://registry.npmjs.org/inquirer/-/inquirer-0.12.0.tgz"
+          "resolved": "https://registry.npmjs.org/inquirer/-/inquirer-0.12.0.tgz",
+          "dependencies": {
+            "readline2": {
+              "version": "1.0.1",
+              "from": "readline2@>=1.0.1 <2.0.0",
+              "resolved": "https://registry.npmjs.org/readline2/-/readline2-1.0.1.tgz"
+            },
+            "run-async": {
+              "version": "0.1.0",
+              "from": "run-async@>=0.1.0 <0.2.0",
+              "resolved": "https://registry.npmjs.org/run-async/-/run-async-0.1.0.tgz"
+            },
+            "rx-lite": {
+              "version": "3.1.2",
+              "from": "rx-lite@>=3.1.2 <4.0.0",
+              "resolved": "https://registry.npmjs.org/rx-lite/-/rx-lite-3.1.2.tgz"
+            }
+          }
         },
         "lodash": {
           "version": "4.12.0",
           "from": "lodash@>=4.0.0 <5.0.0",
           "resolved": "https://registry.npmjs.org/lodash/-/lodash-4.12.0.tgz"
+        },
+        "mute-stream": {
+          "version": "0.0.5",
+          "from": "mute-stream@0.0.5",
+          "resolved": "https://registry.npmjs.org/mute-stream/-/mute-stream-0.0.5.tgz"
         },
         "user-home": {
           "version": "2.0.0",
@@ -685,7 +707,19 @@
     "inquirer": {
       "version": "0.11.4",
       "from": "inquirer@>=0.11.0 <0.12.0",
-      "resolved": "https://registry.npmjs.org/inquirer/-/inquirer-0.11.4.tgz"
+      "resolved": "https://registry.npmjs.org/inquirer/-/inquirer-0.11.4.tgz",
+      "dependencies": {
+        "cli-width": {
+          "version": "1.1.1",
+          "from": "cli-width@>=1.0.1 <2.0.0",
+          "resolved": "https://registry.npmjs.org/cli-width/-/cli-width-1.1.1.tgz"
+        },
+        "run-async": {
+          "version": "0.1.0",
+          "from": "run-async@>=0.1.0 <0.2.0",
+          "resolved": "https://registry.npmjs.org/run-async/-/run-async-0.1.0.tgz"
+        }
+      }
     },
     "insight": {
       "version": "0.7.0",
@@ -695,7 +729,19 @@
         "inquirer": {
           "version": "0.10.1",
           "from": "inquirer@>=0.10.0 <0.11.0",
-          "resolved": "https://registry.npmjs.org/inquirer/-/inquirer-0.10.1.tgz"
+          "resolved": "https://registry.npmjs.org/inquirer/-/inquirer-0.10.1.tgz",
+          "dependencies": {
+            "cli-width": {
+              "version": "1.1.1",
+              "from": "cli-width@>=1.0.1 <2.0.0",
+              "resolved": "https://registry.npmjs.org/cli-width/-/cli-width-1.1.1.tgz"
+            },
+            "run-async": {
+              "version": "0.1.0",
+              "from": "run-async@>=0.1.0 <0.2.0",
+              "resolved": "https://registry.npmjs.org/run-async/-/run-async-0.1.0.tgz"
+            }
+          }
         }
       }
     },
@@ -758,11 +804,6 @@
       "version": "1.1.0",
       "from": "is-plain-obj@>=1.0.0 <2.0.0",
       "resolved": "https://registry.npmjs.org/is-plain-obj/-/is-plain-obj-1.1.0.tgz"
-    },
-    "is-promise": {
-      "version": "2.1.0",
-      "from": "is-promise@>=2.1.0 <3.0.0",
-      "resolved": "https://registry.npmjs.org/is-promise/-/is-promise-2.1.0.tgz"
     },
     "is-property": {
       "version": "1.0.2",
@@ -1070,7 +1111,7 @@
     },
     "npm": {
       "version": "3.8.9",
-      "from": "npm@latest",
+      "from": "npm@>=3.8.9 <4.0.0",
       "resolved": "https://registry.npmjs.org/npm/-/npm-3.8.9.tgz",
       "dependencies": {
         "abbrev": {
@@ -2687,18 +2728,13 @@
     },
     "plop": {
       "version": "1.5.0",
-      "from": "tomekwi/plop#e9979408d119f5ee6a274ae90ccfc47810eb574d",
-      "resolved": "git://github.com/tomekwi/plop.git#e9979408d119f5ee6a274ae90ccfc47810eb574d",
+      "from": "tomekwi/plop#85da066",
+      "resolved": "git://github.com/tomekwi/plop.git#85da0664c0e8772c66823793746e3f142a64477d",
       "dependencies": {
         "async": {
           "version": "0.2.10",
           "from": "async@>=0.2.6 <0.3.0",
           "resolved": "https://registry.npmjs.org/async/-/async-0.2.10.tgz"
-        },
-        "cli-width": {
-          "version": "2.1.0",
-          "from": "cli-width@>=2.0.0 <3.0.0",
-          "resolved": "https://registry.npmjs.org/cli-width/-/cli-width-2.1.0.tgz"
         },
         "handlebars": {
           "version": "2.0.0",
@@ -2706,34 +2742,19 @@
           "resolved": "https://registry.npmjs.org/handlebars/-/handlebars-2.0.0.tgz"
         },
         "inquirer": {
-          "version": "1.0.2",
-          "from": "inquirer@>=1.0.2 <2.0.0",
-          "resolved": "https://registry.npmjs.org/inquirer/-/inquirer-1.0.2.tgz"
-        },
-        "lodash": {
-          "version": "4.12.0",
-          "from": "lodash@>=4.3.0 <5.0.0",
-          "resolved": "https://registry.npmjs.org/lodash/-/lodash-4.12.0.tgz"
+          "version": "0.10.1",
+          "from": "inquirer@>=0.10.0 <0.11.0",
+          "resolved": "https://registry.npmjs.org/inquirer/-/inquirer-0.10.1.tgz"
         },
         "minimist": {
           "version": "1.2.0",
           "from": "minimist@>=1.2.0 <2.0.0",
           "resolved": "https://registry.npmjs.org/minimist/-/minimist-1.2.0.tgz"
         },
-        "mute-stream": {
-          "version": "0.0.6",
-          "from": "mute-stream@0.0.6",
-          "resolved": "https://registry.npmjs.org/mute-stream/-/mute-stream-0.0.6.tgz"
-        },
         "optimist": {
           "version": "0.3.7",
           "from": "optimist@>=0.3.0 <0.4.0",
           "resolved": "https://registry.npmjs.org/optimist/-/optimist-0.3.7.tgz"
-        },
-        "run-async": {
-          "version": "2.2.0",
-          "from": "run-async@>=2.2.0 <3.0.0",
-          "resolved": "https://registry.npmjs.org/run-async/-/run-async-2.2.0.tgz"
         },
         "source-map": {
           "version": "0.1.43",
@@ -2890,11 +2911,6 @@
       "version": "0.1.0",
       "from": "run-async@>=0.1.0 <0.2.0",
       "resolved": "https://registry.npmjs.org/run-async/-/run-async-0.1.0.tgz"
-    },
-    "rx": {
-      "version": "4.1.0",
-      "from": "rx@>=4.1.0 <5.0.0",
-      "resolved": "https://registry.npmjs.org/rx/-/rx-4.1.0.tgz"
     },
     "rx-lite": {
       "version": "3.1.2",
