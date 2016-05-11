@@ -10,28 +10,27 @@ const path = require('path');
 
 const templates = `${__dirname}/js-library`;
 
+const renderArg = (arg) => ` ${/\s/.test(arg)
+  ? `'${arg.replace(/'/g, '\\\'')}'`
+  : arg
+}`;
+
 const $ = (command, args, options) => {
   process.stdout.write([
     '\n',
     options && options.cwd && dim(options.cwd) || '',
     ' ❭ ',
     command,
-    (args ?
-      args.map((arg) => ` ${/\s/.test(arg) ?
-        `'${arg.replace(/'/g, '\'')}'` :
-        arg
-      }`).join('') :
-      ''
-    ),  // eslint-disable-line comma-style
+    args ? args.map(renderArg).join('') : '',
     '\n',
   ].join(''));
 
   const spawnOptions =
     Object.assign({}, options, { stdio: 'inherit' });
 
-  return (command === 'cd' ?
-    process.chdir(args[0]) :
-    child.spawnSync(command, args, spawnOptions)
+  return (command === 'cd'
+    ? process.chdir(args[0])
+    : child.spawnSync(command, args, spawnOptions)
   );
 };
 
