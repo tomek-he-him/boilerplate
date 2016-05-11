@@ -1,0 +1,16 @@
+#! /bin/sh -e
+
+if test "$1" = --help; then echo "\
+Usage:
+    boil [generator]
+    boil --help
+
+    Run this to bootstrap a new project. Run \`boil\` without any arguments
+    to see a list of generators to choose from. More info inside each generator.
+"; exit; fi
+
+project_root="$(dirname "$(readlink -f "$0")")/.."
+
+"$project_root"/node_modules/.bin/plop \
+  --plopfile="$project_root"/plopfile.js \
+  $@
