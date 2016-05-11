@@ -4,6 +4,9 @@
   "bin": {
     "boil": "bin/boil"
   },
+  "scripts": {
+    "reshrinkwrap": "rm npm-shrinkwrap.json; npm install; npm shrinkwrap --dev; git commit -m '[npm run reshrinkwrap] Update the shrinkwrap file' npm-shrinkwrap.json"
+  },
   "dependencies": {
     "chalk": "^1.1.3",
     "email-regex": "^1.0.0",
@@ -16,6 +19,7 @@
   "devDependencies": {
     "eslint": "^2.9.0",
     "eslint-config-airbnb-base": "^2.0.0",
-    "eslint-plugin-import": "^1.6.1"
+    "eslint-plugin-import": "^1.6.1",
+    "npm": "^3.8.9"
   }
 }
