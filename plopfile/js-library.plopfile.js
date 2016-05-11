@@ -145,7 +145,8 @@ module.exports = (plop) => {
   • Try to push stuff to \`origin\` and \`github\`
 
 We’re using http://npm.im/gh for managing github repos. Make sure you have
-the right to create new repos at https://github.com/studio-b12 . Make sure
+the right to create new repos at https://github.com/studio-b12 and that you have
+SSH access configured (More info: https://git.io/ssh-access). Make sure
 you’ve configured gh the \`github_user\` and \`github_token\`
 in your \`~/.gh.json\`. Otherwise, gh will ask you for credentials
 and create a github token for you. This is a security threat.
