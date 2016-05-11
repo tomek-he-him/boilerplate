@@ -217,6 +217,15 @@ is available, because we won’t create it for you.
 `
 Everything set up! You can now \`cd ${answers.name}\`
 and start your work there. Good luck!
+
+By the way, here are things you’ll have to do by hand:
+
+  • Go to https://travis-ci.org/profile/studio-b12 , re-sync your repos
+    and switch on CI integration for studio-b12/${answers.name}.
+  • Go to https://coveralls.io/refresh and switch on coveralls
+    for studio-b12/${answers.name}.
+  • Remember to push your changes to both remotes: \`github\` and \`origin\`.
+
 `
           ));
         },
