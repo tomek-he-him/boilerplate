@@ -16,7 +16,8 @@
     "/License.md"
   ],
   "license": "MIT",
-  "keywords": [{{{ keywords }}}],
+  "keywords": [{{{ keywords }}}
+  ],
   "author": "© {{{ year }}} Studio B12 GmbH (http://studio-b12.de)",
   "contributors": [
     "{{{ author }}}"
