@@ -5,7 +5,7 @@
     "boil": "bin/boil"
   },
   "scripts": {
-    "reshrinkwrap": "rm npm-shrinkwrap.json; npm install; npm shrinkwrap --dev; git commit -m '[npm run reshrinkwrap] Update the shrinkwrap file' npm-shrinkwrap.json"
+    "reshrinkwrap": "rm npm-shrinkwrap.json; npm install; npm shrinkwrap --dev; git commit -m '[npm run reshrinkwrap] Update dependencies' npm-shrinkwrap.json package.json"
   },
   "dependencies": {
     "chalk": "^1.1.3",
