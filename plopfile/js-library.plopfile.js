@@ -172,8 +172,16 @@ is available, because we won’t create it for you.
       const projectRoot = `${process.cwd()}/${answers.name}`;
 
       const fileActions = [
-        '.editorconfig', '.eslintrc', '.gitignore', '.travis.yml',
-        'Contributing.md', 'License.md', 'package.json', 'Readme.md', 'test.js',
+        '.coveralls.yml',
+        '.editorconfig',
+        '.eslintrc',
+        '.gitignore',
+        '.travis.yml',
+        'Contributing.md',
+        'License.md',
+        'package.json',
+        'Readme.md',
+        'test.js',
       ].map((filename) => ({
         type: 'add',
         path: `${projectRoot}/${filename}`,
