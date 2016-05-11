@@ -119,7 +119,6 @@ module.exports = (plop) => {
       ),
       filter: (rawKeywords) => (
         rawKeywords
-          .trim()
           .split(/\s+/)
           .map(keyword => `\n    "${
             keyword
@@ -127,6 +126,12 @@ module.exports = (plop) => {
               .replace(/"/, '\\"')
           }"`)
           .join(',')
+      ),
+      validate: (rawKeywords) => (
+        /^[a-z-]+(\s+[a-z-]+)$/.test(rawKeywords)
+        ? true
+        : `“${rawKeywords}” – A good keyword consists of lowercase letters ` +
+          'and dashes. Come on, add at least one.'
       ),
     }, {
       type: 'confirm',
