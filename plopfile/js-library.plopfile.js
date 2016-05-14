@@ -177,6 +177,7 @@ is available, because we won’t create it for you.
         '.eslintrc',
         '.gitignore',
         '.travis.yml',
+        'Changelog.yaml',
         'Contributing.md',
         'License.md',
         'package.json',
