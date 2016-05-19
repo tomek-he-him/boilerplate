@@ -17,7 +17,7 @@
 
 
 
-<a                                                             id="/"></a>&nbsp;
+<a id="/"></a>&nbsp;
 
 # {{{ name }}}
 
@@ -26,7 +26,7 @@
 
 
 
-<a                                                 id="/installation"></a>&nbsp;
+<a id="/installation"></a>&nbsp;
 
 ## Installation
 
@@ -37,7 +37,7 @@ $ npm install {{{ name }}}
 
 
 
-<a                                                        id="/usage"></a>&nbsp;
+<a id="/usage"></a>&nbsp;
 
 ## Usage
 
@@ -46,7 +46,7 @@ $ npm install {{{ name }}}
 
 
 
-<a                                                      id="/license"></a>&nbsp;
+<a id="/license"></a>&nbsp;
 
 ## License
 
