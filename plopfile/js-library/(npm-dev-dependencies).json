@@ -5,7 +5,7 @@
   "eslint",
   "istanbul",
   "node-dev",
-  "tap-spec@2",
+  "tap-spec-integrated",
   "tape-catch",
   "tape"
 ]
