@@ -194,11 +194,11 @@ is available, because we won’t create it for you.
           $('cd', [projectRoot]);
 
           // npm dependencies
-          $('npm', ['install', '--save-dev', 'npm']);
           const dependencyStrings =
             Object.keys(devDependencies).map((dep) => (
               `${dep}@${devDependencies[dep]}`
             ));
+          $('npm', ['install', '--save-dev', 'npm']);
           $(local('npm'), ['install', '--save-dev'].concat(dependencyStrings));
           $('npm', ['shrinkwrap', '--dev']);
 
