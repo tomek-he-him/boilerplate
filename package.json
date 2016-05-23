@@ -14,7 +14,9 @@
     "gh": "^1.12.4",
     "npm-name": "^3.0.0",
     "parse-author": "^1.0.0",
-    "plop": "github:tomekwi/plop#85da066"
+    "plop": "github:tomekwi/plop#85da066",
+    "tmp": "0.0.28",
+    "untab": "^1.0.1"
   },
   "devDependencies": {
     "eslint": "^2.9.0",
