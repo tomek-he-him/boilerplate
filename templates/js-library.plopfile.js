@@ -9,7 +9,7 @@ const child = require('child_process');
 const path = require('path');
 
 const templates = `${__dirname}/js-library`;
-const devDependencies = require('./js-library/(npm-dev-dependencies).json');
+const devDependencies = require('./js-library/(npm-dev-dependencies)');
 
 const renderArg = (arg) => ` ${/\s/.test(arg)
   ? `'${arg.replace(/'/g, '\\\'')}'`
