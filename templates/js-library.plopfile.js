@@ -152,6 +152,8 @@ module.exports = (plop) => {
     and \`github\` at git@github.com:studio-b12/${answers.name}.git .
   • Initialize a new github repo
     at https://github.com/studio-b12/${answers.name} .
+  • Initialize a new git repo
+    at git@git.sb12.de:js/lib/${answers.name} .
   • Try to push stuff to \`origin\` and \`github\`.
 
 We’re using http://npm.im/gh for managing github repos. Make sure you have
@@ -161,8 +163,8 @@ you’ve configured the \`github_user\` and \`github_token\`
 in your \`~/.gh.json\`. Otherwise, gh will ask you for credentials
 and create a github token for you. This is a security threat.
 
-Make sure an empty repo at git@git.sb12.com:js/lib/${answers.name}.git
-is available, because we won’t create it for you.
+Make sure you have read and write permissions for the repo
+git@git.sb12.com:gitolite-config.git .
 
 `)}Do you agree with this plan?`
       ),
@@ -222,13 +224,13 @@ is available, because we won’t create it for you.
           $('git', ['push', 'github', 'master']);
 
           // git.sb12.de
-          const sb12RepoSlug = `user/tw/${answers.name}`;
+          const sb12RepoSlug = `js/lib/${answers.name}`;
           const gitoliteAdminDir = tmp.dirSync({ unsafeCleanup: true });
           $('git', ['clone', 'git+ssh://git@git.sb12.de/gitolite-admin.git',
             gitoliteAdminDir.name,
           ]);
           $('cd', [gitoliteAdminDir.name]);
-          const confFilePath = `${gitoliteAdminDir.name}/conf/subs/user.conf`;
+          const confFilePath = `${gitoliteAdminDir.name}/conf/subs/js_lib.conf`;
           const confFile = fs.readFileSync(confFilePath, 'utf8');
           const newConfFile = confFile + u`
             \n\trepo ${sb12RepoSlug}
@@ -252,9 +254,9 @@ is available, because we won’t create it for you.
           $('git', ['push', '--set-upstream', 'origin', 'master']);
 
           // Done!
-          process.stdout.write(bold(
+          process.stdout.write(
 `
-Everything set up! You can now \`cd ${answers.name}\`
+Everything set up! You can now ${bold(`cd ${answers.name}`)}
 and start your work there. Good luck!
 
 By the way, here are things you’ll have to do by hand:
@@ -262,11 +264,15 @@ By the way, here are things you’ll have to do by hand:
   • Go to https://travis-ci.org/profile/studio-b12 , re-sync your repos
     and switch on CI integration for studio-b12/${answers.name}.
   • Go to https://coveralls.io/refresh , switch on coveralls
-    for studio-b12/${answers.name} and copy the token into \`.coveralls.yml\`.
-  • Remember to push your changes to both remotes: \`github\` and \`origin\`.
+    for studio-b12/${answers.name} and copy the token into ${
+      bold('.coveralls.yml')
+    }.
+  • Remember to push your changes to both remotes: ${bold('github')} and ${
+      bold('origin')
+    }.
 
 `
-          ));
+          );
         },
       ];
 
