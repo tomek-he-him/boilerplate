@@ -195,7 +195,11 @@ is available, because we won’t create it for you.
 
           // npm dependencies
           $('npm', ['install', '--save-dev', 'npm']);
-          $(local('npm'), ['install', '--save-dev'].concat(devDependencies));
+          const dependencyStrings =
+            Object.keys(devDependencies).map((dep) => (
+              `${dep}@${devDependencies[dep]}`
+            ));
+          $(local('npm'), ['install', '--save-dev'].concat(dependencyStrings));
           $('npm', ['shrinkwrap', '--dev']);
 
           // Initial commit
