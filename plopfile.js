@@ -1,4 +1,4 @@
-const jsLibrary = require('./plopfile/js-library.plopfile');
+const jsLibrary = require('./templates/js-library.plopfile');
 
 module.exports = (plop) => {
   jsLibrary(plop);
