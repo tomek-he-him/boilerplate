@@ -2,12 +2,20 @@ const $ = require('../tools/$');
 const local = require('../tools/local')(`${__dirname}/../../..`);
 
 module.exports = (params) => () => {
-  const dependencyStrings =
-    Object.keys(params.devDependencies).map((dep) => (
-      `${dep}@${params.devDependencies[dep]}`
-    ));
   $('npm', ['install', '--save-dev', 'npm']);
-  $(local('npm'), ['install', '--save-dev'].concat(dependencyStrings));
+
+  [
+    { deps: params.dependencies, flag: '--save' },
+    { deps: params.devDependencies, flag: '--save-dev' },
+  ].forEach((item) => {
+    if (!item.deps) return;
+    const depStrings =
+      Object.keys(item.deps).map((dep) => (
+        `${dep}@${item.deps[dep]}`
+      ));
+    $(local('npm'), ['install', item.flag].concat(depStrings));
+  });
+
   $('npm', ['shrinkwrap', '--dev']);
   return 'ok';
 };

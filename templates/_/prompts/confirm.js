@@ -1,6 +1,6 @@
 const chalk = require('chalk');
 
-module.exports = {
+module.exports = (params) => ({
   type: 'confirm',
   name: 'ok',
   message: (answers) => (
@@ -11,12 +11,12 @@ module.exports = {
   • Install and shrinkwrap initial depenencies.
   • Initialize a new git repo in there and create an initial commit.
   • Add two git remotes – \`origin\`
-    at git@git.sb12.de/js/lib/${answers.name}.git
+    at git@git.sb12.de/${params.slugBase}/${answers.name}.git
     and \`github\` at git@github.com:studio-b12/${answers.name}.git .
   • Initialize a new github repo
     at https://github.com/studio-b12/${answers.name} .
   • Initialize a new git repo
-    at git@git.sb12.de:js/lib/${answers.name} .
+    at git@git.sb12.de:${params.slugBase}/${answers.name} .
   • Try to push stuff to \`origin\` and \`github\`.
 
 We’re using http://npm.im/gh for managing github repos. Make sure you have
@@ -32,4 +32,4 @@ git@git.sb12.com:gitolite-config.git .
 `)}${chalk.bold('Do you agree with this plan?')}`
   ),
   default: false,
-};
+});

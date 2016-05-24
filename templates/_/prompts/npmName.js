@@ -1,10 +1,10 @@
 const npmName = require('npm-name');
 const bold = require('chalk').bold;
 
-module.exports = {
+module.exports = (params) => ({
   type: 'input',
   name: 'name',
-  message: 'What’s the name of your library?',
+  message: `What’s the name of your new ${params.what}?`,
   validate(name) {
     const done = this.async();
     if (!/^[a-z]+(?:-[a-z]+)*$/.test(name)) {
@@ -25,4 +25,4 @@ module.exports = {
       done(true);
     });
   },
-};
+});

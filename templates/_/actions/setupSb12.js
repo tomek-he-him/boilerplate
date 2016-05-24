@@ -6,14 +6,21 @@ const u = require('untab');
 module.exports = (params) => () => {
   const answers = params.answers;
 
-  const sb12RepoSlug = `js/lib/${answers.name}`;
-  const gitoliteAdminDir = tmp.dirSync({ unsafeCleanup: true });
+  const sb12RepoSlug =
+    `${params.slugBase}/${answers.name}`;
+  const gitoliteAdminDir =
+    tmp.dirSync({ unsafeCleanup: true });
   $('git', ['clone', 'git+ssh://git@git.sb12.de/gitolite-admin.git',
     gitoliteAdminDir.name,
   ]);
+
   $('cd', [gitoliteAdminDir.name]);
-  const confFilePath = `${gitoliteAdminDir.name}/conf/subs/js_lib.conf`;
-  const confFile = fs.readFileSync(confFilePath, 'utf8');
+  const confFilePath =
+    `${gitoliteAdminDir.name}/conf/subs/${
+      params.slugBase.replace(/\//g, '_')
+    }.conf`;
+  const confFile =
+    fs.readFileSync(confFilePath, 'utf8');
   const newConfFile = confFile + u`
     \n\trepo ${sb12RepoSlug}
     \t\tRW+ = @webdev
@@ -27,6 +34,7 @@ module.exports = (params) => () => {
     `--message=New repo: ${sb12RepoSlug}`, confFilePath,
   ]);
   $('git', ['push']);
+
   $('cd', [params.projectRoot]);
   gitoliteAdminDir.removeCallback();
 
