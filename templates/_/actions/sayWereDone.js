@@ -21,6 +21,7 @@ By the way, here are things you’ll have to do by hand:
     }.
   • Remember to remove the “stability: experimental” badge as soon
     as you hit v1.0.0.
+  • Create an \`index.js\` and do your magic there!
 
 `
   );
