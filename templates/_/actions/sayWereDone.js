@@ -19,6 +19,8 @@ By the way, here are things you’ll have to do by hand:
   • Remember to push your changes to both remotes: ${bold('github')} and ${
       bold('origin')
     }.
+  • Remember to remove the “stability: experimental” badge as soon
+    as you hit v1.0.0.
 
 `
   );
