@@ -1,3 +1,5 @@
+const $ = require('./_/tools/$');
+
 const npmName = require('./_/prompts/npmName');
 const description = require('./_/prompts/description');
 const npmAuthor = require('./_/prompts/npmAuthor');
@@ -12,22 +14,23 @@ const setupGithub = require('./_/actions/setupGithub');
 const setupSb12 = require('./_/actions/setupSb12');
 const sayWereDone = require('./_/actions/sayWereDone');
 
-const templates = `${__dirname}/js-library`;
-const devDependencies = require('./js-library/(npm-dev-dependencies)');
-const manifest = require('./js-library/(package-json)');
-const slugBase = 'js/lib';
+const templates = `${__dirname}/command-line-tool`;
+const dependencies = require('./command-line-tool/(npm-dependencies)');
+const devDependencies = require('./command-line-tool/(npm-dev-dependencies)');
+const manifest = require('./command-line-tool/(package-json)');
+const slugBase = 'js/cli-tool';
 
 module.exports = (plop) => {
   plop.addHelper('year', () => (new Date()).getFullYear());
 
-  plop.setGenerator('js-library', {
-    description: 'A generic JS library',
+  plop.setGenerator('command-line-tool', {
+    description: 'A Node.js-based command line tool',
 
     prompts: [
-      npmName({ what: 'library' }),
+      npmName({ what: 'tool' }),
       description,
       npmAuthor,
-      npmKeywords({}),
+      npmKeywords({ extra: ['command', 'cli'] }),
       confirm({ slugBase }),
     ],
 
@@ -42,10 +45,13 @@ module.exports = (plop) => {
         '.eslintrc',
         '.gitignore',
         '.travis.yml',
+        'bin/{{{ name }}}',
         'Changelog.yaml',
         'Contributing.md',
         'License.md',
         'Readme.md',
+        'scripts/manpages',
+        'scripts/readme',
         'test.js',
       ].map((filename) => ({
         type: 'add',
@@ -53,10 +59,18 @@ module.exports = (plop) => {
         templateFile: `${templates}/${filename}`,
       }));
 
+      const binarify = () => {
+        $('chmod', ['+x',
+          'scripts/manpages', 'scripts/readme', `bin/${answers.name}`,
+        ]);
+        return 'ok';
+      };
+
       return fileActions.concat([
         enterProjectRoot({ projectRoot }),
         packageJson({ projectRoot, manifest, answers }),
-        npmDependencies({ devDependencies }),
+        binarify,
+        npmDependencies({ dependencies, devDependencies }),
         initialCommit,
         setupGithub({ answers }),
         setupSb12({ answers, projectRoot, slugBase }),

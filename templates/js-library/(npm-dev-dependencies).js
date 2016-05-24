@@ -1,3 +1,5 @@
+/* eslint-disable quote-props */
+
 module.exports = {
   'coveralls': '2',
   'eslint': '2',
