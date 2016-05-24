@@ -13,6 +13,7 @@
     "execa": "^0.4.0",
     "gh": "^1.12.4",
     "npm-name": "^3.0.0",
+    "object-merge": "^2.5.1",
     "parse-author": "^1.0.0",
     "plop": "github:tomekwi/plop#85da066",
     "tmp": "0.0.28",
