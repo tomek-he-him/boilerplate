@@ -8,7 +8,7 @@ module.exports = (params) => ({
 
   • Create the subdirectory \`${answers.name}\` in your
     current working directory and put a bunch of new files inside.
-  • Install and shrinkwrap initial depenencies.
+  • Install and shrinkwrap initial dependencies.
   • Initialize a new git repo in there and create an initial commit.
   • Add two git remotes – \`origin\`
     at git@git.sb12.de/${params.slugBase}/${answers.name}.git
