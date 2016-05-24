@@ -14,14 +14,10 @@ module.exports = (answers) => {
     bin: {
       [answers.name]: `bin/${answers.name}`,
     },
-    files: [
-      '/**/*.js',
-      '!/test.js',
-      '/Readme.md',
-      '/License.md',
+    files: base.files.concat([
       '/bin/',
       '/manpages/',
-    ],
+    ]),
     man: [
       '/manpages/elm-live.1',
     ],
