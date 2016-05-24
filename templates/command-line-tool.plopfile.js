@@ -1,3 +1,5 @@
+const $ = require('./_/tools/$');
+
 const npmName = require('./_/prompts/npmName');
 const description = require('./_/prompts/description');
 const npmAuthor = require('./_/prompts/npmAuthor');
@@ -57,9 +59,17 @@ module.exports = (plop) => {
         templateFile: `${templates}/${filename}`,
       }));
 
+      const binarify = () => {
+        $('chmod', ['+x',
+          'scripts/manpages', 'scripts/readme', `bin/${answers.name}`,
+        ]);
+        return 'ok';
+      };
+
       return fileActions.concat([
         enterProjectRoot({ projectRoot }),
         packageJson({ projectRoot, manifest, answers }),
+        binarify,
         npmDependencies({ dependencies, devDependencies }),
         initialCommit,
         setupGithub({ answers }),
