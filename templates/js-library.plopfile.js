@@ -283,6 +283,9 @@ By the way, here are things you’ll have to do by hand:
 
 `
         );
+
+        // We’re not returning anything to prevent plop from rendering
+        // its own stuff.
       };
 
       return fileActions.concat([
