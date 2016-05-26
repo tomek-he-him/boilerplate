@@ -10,14 +10,16 @@ module.exports = (params) => ({
     current working directory and put a bunch of new files inside.
   • Install and shrinkwrap initial dependencies.
   • Initialize a new git repo in there and create an initial commit.
-  • Add two git remotes – \`origin\`
+  • Add ${params.noPublic ? `one git remote – \`origin\`
+    at git@git.sb12.de/${params.slugBase}/${answers.name}.git .` :
+    `two git remotes – \`origin\`
     at git@git.sb12.de/${params.slugBase}/${answers.name}.git
-    and \`github\` at git@github.com:studio-b12/${answers.name}.git .
-  • Initialize a new github repo
-    at https://github.com/studio-b12/${answers.name} .
+    and \`github\` at git@github.com:studio-b12/${answers.name}.git .`}
+  ${params.noPublic ? '' : '• Initialize a new github repo ' +
+  `at https://github.com/studio-b12/${answers.name} .`}
   • Initialize a new git repo
     at git@git.sb12.de:${params.slugBase}/${answers.name} .
-  • Try to push stuff to \`origin\` and \`github\`.
+  • Try to push stuff to \`origin\`${params.noPublic ? '' : ' and `github`'}.
 
 We’re using http://npm.im/gh for managing github repos. Make sure you have
 the right to create new repos at https://github.com/studio-b12 and that you have

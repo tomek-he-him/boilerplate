@@ -1,0 +1,23 @@
+appid de.vw.vsf.app/{{{ name }}}
+
+#master
+# REF will be set to 'master-YYYY-m-d-HHMMZ' (UTC)
+#master-date
+
+# purges ALL previous builds
+#keep_latest
+
+tgz
+
+notify vsfdev@studio-b12.de
+
+# access / authentication
+# to make the app public available (without a password)
+#public
+# to grant selected users access to the app
+# manage multiple accounts in a .htusers file
+# use SHA password encryption!
+# use `htpasswd -s .htusers USERNAME`
+
+# enable foreground builds on git push
+foreground
