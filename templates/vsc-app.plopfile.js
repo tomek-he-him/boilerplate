@@ -11,11 +11,12 @@ const confirm = require('./_/prompts/confirm');
 const enterProjectRoot = require('./_/actions/enterProjectRoot');
 const initialCommit = require('./_/actions/initialCommit');
 const setupSb12 = require('./_/actions/setupSb12');
-const sayWereDone = require('./_/actions/tinyDone');
+const tinyDone = require('./_/actions/tinyDone');
 
 const templates = `${__dirname}/vsc-app`;
 const manifest = require('./vsc-app/manifest');
 const slugBase = 'html5/project/vw/vsccore/app';
+const confSlug = 'html5/project';
 
 module.exports = (plop) => {
   plop.setGenerator('command-line-tool', {
@@ -58,8 +59,8 @@ module.exports = (plop) => {
         manifest({ projectRoot, answers }),
         binarify,
         initialCommit,
-        setupSb12({ answers, projectRoot, slugBase }),
-        sayWereDone({ answers }),
+        setupSb12({ answers, projectRoot, slugBase, confSlug }),
+        tinyDone({ answers }),
       ]);
     },
   });
