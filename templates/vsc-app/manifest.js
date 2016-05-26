@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-module.exports = (params) => {
+module.exports = (params) => () => {
   const manifest = {
     name: params.answers.name,
     title: params.answers.title,
@@ -10,7 +10,7 @@ module.exports = (params) => {
     description: params.answers.description,
     source: `apps/${params.answers.name}/${params.answers.name}.html`,
   };
-
-  fs.writeFileSync(`${params.projectRoot}/package.json`, manifest);
+  const stringified = JSON.stringify(manifest, null, '  ');
+  fs.writeFileSync(`${params.projectRoot}/manifest.json`, stringified);
   return 'ok';
 };

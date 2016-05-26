@@ -1,4 +1,3 @@
-const $ = require('./_/tools/$');
 
 const name = require('./_/prompts/name');
 const title = require('./_/prompts/title');
@@ -14,13 +13,13 @@ const setupSb12 = require('./_/actions/setupSb12');
 const tinyDone = require('./_/actions/tinyDone');
 
 const templates = `${__dirname}/vsc-app`;
-const manifest = require('./vsc-app/manifest');
+const manifest = require('./vsc-app/manifest.js');
 const slugBase = 'html5/project/vw/vsccore/app';
 const confSlug = 'html5/project';
 
 module.exports = (plop) => {
-  plop.setGenerator('command-line-tool', {
-    description: 'A Node.js-based command line tool',
+  plop.setGenerator('vsc-app', {
+    description: 'An JS App for VSC-Core.',
 
     prompts: [
       name({ what: 'app' }),
@@ -38,7 +37,6 @@ module.exports = (plop) => {
       const fileActions = [
         '.build',
         '.gitignore',
-        'bin/{{{ name }}}',
         '{{{ name }}}.html',
         'Makefile',
       ].map((filename) => ({
@@ -47,17 +45,9 @@ module.exports = (plop) => {
         templateFile: `${templates}/${filename}`,
       }));
 
-      const binarify = () => {
-        $('chmod', ['+x',
-          `bin/${answers.name}`,
-        ]);
-        return 'ok';
-      };
-
       return fileActions.concat([
         enterProjectRoot({ projectRoot }),
         manifest({ projectRoot, answers }),
-        binarify,
         initialCommit,
         setupSb12({ answers, projectRoot, slugBase, confSlug }),
         tinyDone({ answers }),
