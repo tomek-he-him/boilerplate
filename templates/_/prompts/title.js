@@ -6,7 +6,7 @@ module.exports = (params) => ({
     const done = this.async();
     if (!/^[A-Za-z]+(?:\s[A-Za-z]+)*$/.test(name)) {
       done(
-        'A good name consists of one or more words ' +
+        'A good title consists of one or more words ' +
         'separated with a single white space. ' +
         'Have another go!'
       ); return;
