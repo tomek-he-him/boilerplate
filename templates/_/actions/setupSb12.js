@@ -36,7 +36,7 @@ module.exports = (params) => () => {
     \t\tconfig gitweb.owner = "${answers.author.replace(/\s+<.+$/, '')}"
     \t\tconfig gitweb.description = "${
       answers.description
-    }. Published at https://github.com/studio-b12/${answers.name} ."
+    }."
     \t\tconfig gitweb.category\t\t= vsf
   `;
   fs.writeFileSync(confFilePath, newConfFile);
