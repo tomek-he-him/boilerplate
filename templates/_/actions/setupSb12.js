@@ -5,7 +5,7 @@ const u = require('untab');
 
 module.exports = (params) => () => {
   const answers = params.answers;
-
+  const confSlug = params.confSlug || params.slugBase;
   const sb12RepoSlug =
     `${params.slugBase}/${answers.name}`;
   const gitoliteAdminDir =
@@ -17,17 +17,27 @@ module.exports = (params) => () => {
   $('cd', [gitoliteAdminDir.name]);
   const confFilePath =
     `${gitoliteAdminDir.name}/conf/subs/${
-      params.slugBase.replace(/\//g, '_')
+      confSlug.replace(/\//g, '_')
     }.conf`;
   const confFile =
     fs.readFileSync(confFilePath, 'utf8');
-  const newConfFile = confFile + u`
+  const newConfFile = !params.confSlug
+  ? confFile + u`
     \n\trepo ${sb12RepoSlug}
     \t\tRW+ = @webdev
     \t\tconfig gitweb.owner = "${answers.author.replace(/\s+<.+$/, '')}"
     \t\tconfig gitweb.description = "${
       answers.description
     }. Published at https://github.com/studio-b12/${answers.name} ."
+  `
+  : confFile + u`
+    \n\trepo ${sb12RepoSlug}
+    \t\tRW+ = @webdev
+    \t\tconfig gitweb.owner = "${answers.author.replace(/\s+<.+$/, '')}"
+    \t\tconfig gitweb.description = "${
+      answers.description
+    }. Published at https://github.com/studio-b12/${answers.name} ."
+    \t\tconfig gitweb.category\t\t= vsf
   `;
   fs.writeFileSync(confFilePath, newConfFile);
   $('git', ['commit',
