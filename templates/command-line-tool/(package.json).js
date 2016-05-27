@@ -1,7 +1,9 @@
 const merge = require('object-merge');
-const base = require('../js-library/(package.json)');
+const baseManifest = require('../js-library/(package.json)');
 
 module.exports = (answers) => {
+  const base = baseManifest(answers);
+
   const extra = {
     scripts: {
       manpages: 'scripts/manpages',
@@ -23,5 +25,5 @@ module.exports = (answers) => {
     ],
   };
 
-  return merge(extra, base(answers));
+  return merge(extra, base);
 };
