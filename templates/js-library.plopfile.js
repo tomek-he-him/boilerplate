@@ -6,6 +6,7 @@ const confirm = require('./_/prompts/confirm');
 
 const enterProjectRoot = require('./_/actions/enterProjectRoot');
 const packageJson = require('./_/actions/packageJson');
+const licenseMd = require('./_/actions/licenseMd');
 const npmDependencies = require('./_/actions/npmDependencies');
 const initialCommit = require('./_/actions/initialCommit');
 const setupGithub = require('./_/actions/setupGithub');
@@ -14,12 +15,11 @@ const sayWereDone = require('./_/actions/sayWereDone');
 
 const templates = `${__dirname}/js-library`;
 const devDependencies = require('./js-library/(npm-dev-dependencies)');
-const manifest = require('./js-library/(package-json)');
+const manifest = require('./js-library/(package.json)');
+const license = require('./js-library/(License.md)');
 const slugBase = 'js/lib';
 
 module.exports = (plop) => {
-  plop.addHelper('year', () => (new Date()).getFullYear());
-
   plop.setGenerator('js-library', {
     description: 'A generic JS library',
 
@@ -44,7 +44,6 @@ module.exports = (plop) => {
         '.travis.yml',
         'Changelog.yaml',
         'Contributing.md',
-        'License.md',
         'Readme.md',
         'test.js',
       ].map((filename) => ({
@@ -56,6 +55,7 @@ module.exports = (plop) => {
       return fileActions.concat([
         enterProjectRoot({ projectRoot }),
         packageJson({ projectRoot, manifest, answers }),
+        licenseMd({ projectRoot, license }),
         npmDependencies({ devDependencies }),
         initialCommit,
         setupGithub({ answers }),

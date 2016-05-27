@@ -1,5 +1,5 @@
 const merge = require('object-merge');
-const base = require('../js-library/(package-json)');
+const base = require('../js-library/(package.json)');
 
 module.exports = (answers) => {
   const extra = {

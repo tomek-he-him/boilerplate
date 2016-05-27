@@ -1,3 +1,5 @@
+const currentYear = require('../_/tools/currentYear');
+
 module.exports = (answers) => ({
   name: answers.name,
   version: '0.0.0',
@@ -29,7 +31,7 @@ module.exports = (answers) => ({
   ],
   license: 'MIT',
   keywords: answers.keywords,
-  author: `© ${answers.year} Studio B12 GmbH (http://studio-b12.de)`,
+  author: `© ${currentYear} Studio B12 GmbH (http://studio-b12.de)`,
   contributors: [
     answers.author,
   ],

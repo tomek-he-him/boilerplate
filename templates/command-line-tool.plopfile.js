@@ -8,6 +8,7 @@ const confirm = require('./_/prompts/confirm');
 
 const enterProjectRoot = require('./_/actions/enterProjectRoot');
 const packageJson = require('./_/actions/packageJson');
+const licenseMd = require('./_/actions/licenseMd');
 const npmDependencies = require('./_/actions/npmDependencies');
 const initialCommit = require('./_/actions/initialCommit');
 const setupGithub = require('./_/actions/setupGithub');
@@ -17,12 +18,11 @@ const sayWereDone = require('./_/actions/sayWereDone');
 const templates = `${__dirname}/command-line-tool`;
 const dependencies = require('./command-line-tool/(npm-dependencies)');
 const devDependencies = require('./command-line-tool/(npm-dev-dependencies)');
-const manifest = require('./command-line-tool/(package-json)');
+const manifest = require('./command-line-tool/(package.json)');
+const license = require('./js-library/(License.md)');
 const slugBase = 'js/cli-tool';
 
 module.exports = (plop) => {
-  plop.addHelper('year', () => (new Date()).getFullYear());
-
   plop.setGenerator('command-line-tool', {
     description: 'A Node.js-based command line tool',
 
@@ -48,7 +48,6 @@ module.exports = (plop) => {
         'bin/{{{ name }}}',
         'Changelog.yaml',
         'Contributing.md',
-        'License.md',
         'Readme.md',
         'scripts/manpages',
         'scripts/readme',
@@ -69,6 +68,7 @@ module.exports = (plop) => {
       return fileActions.concat([
         enterProjectRoot({ projectRoot }),
         packageJson({ projectRoot, manifest, answers }),
+        licenseMd({ projectRoot, license }),
         binarify,
         npmDependencies({ dependencies, devDependencies }),
         initialCommit,
