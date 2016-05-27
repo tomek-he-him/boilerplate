@@ -21,7 +21,7 @@ module.exports = (answers) => {
       '/manpages/',
     ]),
     man: [
-      '/manpages/elm-live.1',
+      `/manpages/${answers.name}.1`,
     ],
   };
 
