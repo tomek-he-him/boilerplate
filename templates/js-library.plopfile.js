@@ -56,7 +56,7 @@ module.exports = (plop) => {
         enterProjectRoot({ projectRoot }),
         packageJson({ projectRoot, manifest, answers }),
         licenseMd({ projectRoot, license }),
-        npmDependencies({ devDependencies }),
+        npmDependencies({ projectRoot, devDependencies }),
         initialCommit,
         setupGithub({ answers }),
         setupSb12({ answers, projectRoot, slugBase }),

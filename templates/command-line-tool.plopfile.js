@@ -70,7 +70,7 @@ module.exports = (plop) => {
         packageJson({ projectRoot, manifest, answers }),
         licenseMd({ projectRoot, license }),
         binarify,
-        npmDependencies({ dependencies, devDependencies }),
+        npmDependencies({ projectRoot, dependencies, devDependencies }),
         initialCommit,
         setupGithub({ answers }),
         setupSb12({ answers, projectRoot, slugBase }),

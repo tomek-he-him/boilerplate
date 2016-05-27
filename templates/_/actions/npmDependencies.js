@@ -18,7 +18,7 @@ module.exports = (params) => () => {
     $(local('npm'), ['install', item.flag].concat(depStrings));
   });
 
-  $('npm', ['shrinkwrap', '--dev']);
+  $(local('npm'), ['shrinkwrap', '--dev']);
 
   return 'npmDependencies: ok';
 };
