@@ -1,7 +1,9 @@
 const $ = require('../tools/$');
-const local = require('../tools/local')(`${__dirname}/../../..`);
+const local$ = require('../tools/local');
 
 module.exports = (params) => () => {
+  const local = local$(params.projectRoot);
+
   $('npm', ['install', '--save-dev', 'npm']);
 
   [
