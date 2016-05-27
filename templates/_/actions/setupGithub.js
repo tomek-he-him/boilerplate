@@ -11,5 +11,6 @@ module.exports = (params) => () => {
     `git@github.com:studio-b12/${params.answers.name}.git`,
   ]);
   $('git', ['push', 'github', 'master']);
-  return 'ok';
+
+  return 'setupGithub: ok';
 };

@@ -4,5 +4,6 @@ module.exports = () => {
   $('git', ['init']);
   $('git', ['add', '.']);
   $('git', ['commit', '--message=Boom!']);
-  return 'ok';
+
+  return 'initialCommit: ok';
 };

@@ -52,5 +52,6 @@ module.exports = (params) => () => {
     `git@git.sb12.de:${sb12RepoSlug}.git`,
   ]);
   $('git', ['push', '--set-upstream', 'origin', 'master']);
-  return 'ok';
+
+  return 'setupSb12: ok';
 };

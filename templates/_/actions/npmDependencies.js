@@ -17,5 +17,6 @@ module.exports = (params) => () => {
   });
 
   $('npm', ['shrinkwrap', '--dev']);
-  return 'ok';
+
+  return 'npmDependencies: ok';
 };
