@@ -25,5 +25,5 @@ module.exports = (answers) => {
     ],
   };
 
-  return merge(extra, base);
+  return merge(base, extra);
 };
