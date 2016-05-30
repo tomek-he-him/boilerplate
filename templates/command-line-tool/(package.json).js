@@ -10,7 +10,7 @@ module.exports = (answers) => {
       prepublish: 'npm run manpages',
       readme: [
         'scripts/readme',
-        'git commit -m \'[npm run readme] Update the docs\' Readme.md',
+        'git commit -m "[npm run readme] Update the docs" Readme.md',
       ].join(' && '),
     },
     bin: {

@@ -14,7 +14,7 @@ module.exports = (answers) => ({
       'npm install',
       'npm shrinkwrap --dev',
       'git commit ' +
-        '-m \'[npm run shrinkwrap] Update dependencies\'' +
+        '-m "[npm run shrinkwrap] Update dependencies"' +
         ' npm-shrinkwrap.json package.json',
     ].join(' && '),
   },
